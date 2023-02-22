@@ -18,14 +18,10 @@ export const getCompanies = getCompaniesThunk
 export const searchCompany = searchCompanyThunk
 export const getCompany = getCompanyThunk
 
-export const recipeSlice = createSlice({
+export const companySlice = createSlice({
   name: 'companies',
   initialState,
-  reducers: {
-    // resetCreateRecipeStatus: (state) => {
-    //   state.status.createRecipe = REDUX_STATE.INITIAL
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getCompanies.pending, (state) => {
       state.status.getCompanies = REDUX_STATE.LOADING
@@ -85,6 +81,6 @@ export const recipeSlice = createSlice({
   },
 })
 
-// export const { resetCreateRecipeStatus } = recipeSlice.actions
+// export const { resetCompanySliceStatus } = companySlice.actions
 
-export default recipeSlice.reducer
+export default companySlice.reducer

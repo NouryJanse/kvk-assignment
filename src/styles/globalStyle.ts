@@ -2,10 +2,12 @@ import { createGlobalStyle } from 'styled-components'
 import './tailwind.output.css'
 
 const GlobalStyle = createGlobalStyle`
-    html {
-        box-sizing: border-box;
-        font-family: 'opensans';
-        font-weight: 400;
+html {
+    box-sizing: border-box;
+    font-family: 'opensans', BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     }
 
     *, 
@@ -32,5 +34,16 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 400;
         word-break: break-word;
     }
+
+    .App-logo {
+    max-width: 100%;
+    min-height: 160px;
+    pointer-events: none;
+    }
+
+    code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+    }    
 `
 export default GlobalStyle

@@ -1,10 +1,11 @@
 module.exports = {
   content: [
-    './src/App.tsx',
-    './src/Auth.tsx',
-    './src/components/**/*.{html,tsx,ts}',
-    './src/containers/**/*.{html,tsx}',
-    './src/stories/**/*.{html,tsx}',
+    './src/*.{html,tsx,ts}',
+    './src/components/atoms/**/*.{html,tsx,ts}',
+    './src/components/molecules/**/*.{html,tsx,ts}',
+    './src/components/organisms/**/*.{html,tsx,ts}',
+    './src/components/organisms/**/**/*.{html,tsx,ts}',
+    './src/components/pages/**/*.{html,tsx,ts}',
   ],
   presets: [],
   darkMode: 'media', // or 'class'
