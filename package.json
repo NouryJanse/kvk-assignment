@@ -38,10 +38,11 @@
     "tailwindcss": "^3.2.7"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "tailwind": "tailwindcss build -i src/styles/input.css -o src/styles/tailwind.output.css --watch"
   },
   "eslintConfig": {
     "extends": [
