@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-async function searchCompanyAPI(query: string): Promise<Company> {
+async function searchCompanyAPI(query: string): Promise<{ data: Company[] }> {
   const response = await axios.get(`${process.env.REACT_APP_API_URL}/companies?search=${query}`)
   return response.data
 }
