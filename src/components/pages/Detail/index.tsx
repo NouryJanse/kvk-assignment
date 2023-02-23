@@ -13,7 +13,7 @@ const Detail: React.FC = (): ReactElement => {
   const companies: Company[] = useSelector((state: RootState) => state.companySlice.data.companies)
   const status = useSelector((state: RootState) => state.companySlice.status)
   const [company, setCompany] = useState<Company>({} as Company)
-  const defaultImage = `https://picsum.photos/300?blur&${Math.random()}` // the appended random results in the expected behavior but is not a desired fix
+  const defaultImage = `https://picsum.photos/300?  ${Math.random()}` // the appended random results in the expected behavior but is not a desired fix
   const [image, setImage] = useState(defaultImage)
 
   useEffect(() => {
