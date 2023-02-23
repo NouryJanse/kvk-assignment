@@ -14,6 +14,7 @@ const StyledCompanyTile = tw.div`
   flex-row
   justify-between
   cursor-pointer
+  lg:max-w-3xl
 `
 
 export default StyledCompanyTile

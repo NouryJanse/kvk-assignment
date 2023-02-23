@@ -20,8 +20,8 @@ const CompanyTile: React.FC<CompanyTileProps> = ({ company }): ReactElement => {
       }}
     >
       <div className="flex inline-flex flex-col md:flex-row">
-        <h2 className="text-xs md:text-lg lg:text-xl font-medium">{company.name}</h2>
-        <span className="md:pl-6  text-xs md:text-md lg:text-lg self-center">Adres: {company.city}</span>
+        <h2 className="text-sm md:text-lg lg:text-xl font-medium">{company.name}</h2>
+        <span className="md:pl-6  text-xs md:text-md lg:text-lg md:self-center">Adres: {company.city}</span>
       </div>
       <img src={icon} className="arrow w-4 sm:w-6 md:w-7" alt="logo" />
     </StyledCompanyTile>

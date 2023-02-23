@@ -59,7 +59,7 @@
   "scripts": {
     "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!your-module-name)/\"",
     "eject": "react-scripts eject",
     "build:tailwind": "tailwindcss build -i src/styles/input.css -o src/styles/tailwind.output.css",
     "tailwind": "tailwindcss build -i src/styles/input.css -o src/styles/tailwind.output.css --watch"
