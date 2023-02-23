@@ -12,6 +12,7 @@ interface Company {
   catchPhrase?: string
   website?: string
   phoneNumber?: string
+  fetchComplete?: boolean
 }
 
 interface Error {

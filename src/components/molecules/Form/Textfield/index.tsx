@@ -1,8 +1,6 @@
 import React, { ChangeEventHandler, ReactElement } from 'react'
 import { FieldRowStyle, LabelStyle, InputStyle } from './styled'
 
-// import { ErrorMessage } from '../../../index'
-
 type TextFieldProps = {
   name: string
   label: string

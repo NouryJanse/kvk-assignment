@@ -1,7 +1,7 @@
 import { ReactElement, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import RootState from '../../../types/RootState'
 import { getCompany, getCompanies } from '../../../redux/reducers/companies/companySlice'
 import REDUX_STATE from '../../../constants/REDUX_STATE'
@@ -12,6 +12,8 @@ const Detail: React.FC = (): ReactElement => {
   const companies: Company[] = useSelector((state: RootState) => state.companySlice.data.companies)
   const status = useSelector((state: RootState) => state.companySlice.status)
   const [company, setCompany] = useState<Company>({} as Company)
+  const defaultImage = `https://picsum.photos/300?blur&${Math.random()}` // the appended random results in the expected behavior but is not a desired fix
+  const [image, setImage] = useState(defaultImage)
 
   useEffect(() => {
     if (params.id && companies.length) {
@@ -20,7 +22,7 @@ const Detail: React.FC = (): ReactElement => {
       })
       if (currentCompany) setCompany(currentCompany as Company)
     }
-  }, [params.id, companies, company])
+  }, [params.id, companies])
 
   useEffect(() => {
     if (status.getCompany === REDUX_STATE.FULFILLED && company.id) {
@@ -28,34 +30,46 @@ const Detail: React.FC = (): ReactElement => {
         icon: '👏',
       })
     }
-  }, [status.getCompany])
+  }, [status])
 
+  if (status.getCompanies === REDUX_STATE.REJECTED || status.getCompany === REDUX_STATE.REJECTED) {
+    toast.error('Sorry, no results were found.')
+  }
+
+  // if the page is refreshed it will fetch all the companies too
   useEffect(() => {
     if (!companies.length) {
       // @ts-ignore:next-line
       dispatch(getCompanies())
     }
-  }, [])
-
-  useEffect(() => {
-    // @ts-ignore:next-line
-    dispatch(getCompany(params.id))
-  }, [])
-
-  if (status.getCompany === REDUX_STATE.REJECTED) {
-    toast.error('Sorry, no results were found.')
-  }
+    if (company.id && company?.fetchComplete !== true) {
+      // @ts-ignore:next-line
+      dispatch(getCompany(params.id))
+    }
+  }, [company])
 
   return (
     <div>
-      <Toaster position="bottom-right" />
       {company.id ? (
+        // should be refactored into a seperate component
         <div>
-          <p>{company.name}</p>
-          <img src={company.logo} alt="" />
-          <p>{company.catchPhrase}</p>
-          <p>{company.city}</p>
-          <p>{company.website}</p>
+          <h1 className="text-4xl mb-4">{company.name}</h1>
+
+          <img
+            src={image}
+            alt=""
+            width="300px"
+            height="300px"
+            onMouseEnter={(): void => setImage(company.logo)}
+            onMouseLeave={(): void => setImage(defaultImage)}
+          />
+
+          <span className="block">Our motto: {company.catchPhrase}</span>
+          <span className="block">Located in: {company.city}</span>
+
+          <a href={company.website} className="hover:font-bold underline">
+            {company.website}
+          </a>
         </div>
       ) : (
         ''

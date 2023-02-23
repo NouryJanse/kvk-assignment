@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import { Outlet, useParams } from 'react-router-dom'
-import CompanyListing from '../../molecules/CompanyListing'
+import CompanyListing from '../../organisms/CompanySearch'
 
 const Home: React.FC = (): ReactElement => {
   const params = useParams()

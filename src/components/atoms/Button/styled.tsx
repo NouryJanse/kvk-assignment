@@ -14,7 +14,7 @@ const ButtonStyle = tw.button`
   outline-none  
   align-middle
   justify-center
-  p-2
+  p-3
   rounded
 
   no-underline

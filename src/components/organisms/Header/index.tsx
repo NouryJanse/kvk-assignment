@@ -10,6 +10,7 @@ const Header: React.FC = (): ReactElement => {
         navigate('/')
       }}
       role="presentation"
+      className="shadow-md focus:pointer-events-auto cursor-pointer"
     >
       <img src={logo} className="App-logo" alt="logo" />
     </nav>

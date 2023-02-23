@@ -5,7 +5,7 @@ import { REDUX_STATE } from '../../../constants'
 import LogHelper from '../../../helpers/LogHelper'
 
 export const initialState = {
-  data: { companies: [] as Company[] },
+  data: { companies: [] as Company[], searchedCompanies: [] as Company[] },
   status: {
     getCompanies: 'initial',
     searchCompany: 'initial',
@@ -21,7 +21,11 @@ export const getCompany = getCompanyThunk
 export const companySlice = createSlice({
   name: 'companies',
   initialState,
-  reducers: {},
+  reducers: {
+    resetSearchedCompanies: (state) => {
+      state.data.searchedCompanies = []
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getCompanies.pending, (state) => {
       state.status.getCompanies = REDUX_STATE.LOADING
@@ -52,7 +56,7 @@ export const companySlice = createSlice({
     builder.addCase(searchCompany.fulfilled, (state, action) => {
       state.status.searchCompany = REDUX_STATE.FULFILLED
       if (action !== null && action.payload) {
-        state.data.companies = action.payload
+        state.data.searchedCompanies = action.payload
       }
       state.error = {}
     })
@@ -71,7 +75,7 @@ export const companySlice = createSlice({
       const companies: Company[] = state.data.companies
       if (action?.payload) {
         state.data.companies = companies.map((company: Company) => {
-          return company.id === action.payload.id ? { ...company, ...action.payload } : company
+          return company.id === action.payload.id ? { ...company, ...action.payload, fetchComplete: true } : company
         })
       }
       // state.data.companyDetail = action.payload
@@ -81,6 +85,6 @@ export const companySlice = createSlice({
   },
 })
 
-// export const { resetCompanySliceStatus } = companySlice.actions
+export const { resetSearchedCompanies } = companySlice.actions
 
 export default companySlice.reducer

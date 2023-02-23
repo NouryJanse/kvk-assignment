@@ -3,10 +3,12 @@ import styled from 'styled-components'
 export const InputStyle = styled.input`
   display: flex;
   color: black;
-  border: 1px solid #0d6efd;
-  padding: 8px;
+  border: 1px solid #757575;
+  padding: 12px;
   transition: padding 200ms ease-in-out;
+  outline: 0;
   width: 99%;
+  border-radius: 8px;
 
   &:focus {
     padding-left: 16px;
