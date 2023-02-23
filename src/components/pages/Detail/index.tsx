@@ -1,5 +1,5 @@
 import { ReactElement, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import toast from 'react-hot-toast'
 import RootState from '../../../types/RootState'
@@ -9,6 +9,7 @@ import REDUX_STATE from '../../../constants/REDUX_STATE'
 const Detail: React.FC = (): ReactElement => {
   const params = useParams()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const companies: Company[] = useSelector((state: RootState) => state.companySlice.data.companies)
   const status = useSelector((state: RootState) => state.companySlice.status)
   const [company, setCompany] = useState<Company>({} as Company)
@@ -53,7 +54,18 @@ const Detail: React.FC = (): ReactElement => {
       {company.id ? (
         // should be refactored into a seperate component
         <div>
-          <h1 className="text-4xl mb-4">{company.name}</h1>
+          <div className="flex flex-row justify-between">
+            <h1 className="text-4xl pb-4">{company.name}</h1>
+            <span
+              onClick={(): void => {
+                navigate('/')
+              }}
+              role="presentation"
+              className="self-center font-bold text-green hover:underline cursor-pointer"
+            >
+              Terug naar home
+            </span>
+          </div>
 
           <img
             src={image}
@@ -67,7 +79,7 @@ const Detail: React.FC = (): ReactElement => {
           <span className="block">Our motto: {company.catchPhrase}</span>
           <span className="block">Located in: {company.city}</span>
 
-          <a href={company.website} className="hover:font-bold underline">
+          <a href={company.website} target="_blank" rel="noreferrer" className="hover:font-bold underline">
             {company.website}
           </a>
         </div>
