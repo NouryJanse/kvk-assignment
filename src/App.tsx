@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { ReactElement } from 'react'
+import { Toaster } from 'react-hot-toast'
+import { Route, Routes } from 'react-router-dom'
 
-function App() {
+import { Header, Home, Detail } from './components'
+import { ROUTES } from './constants'
+
+const App: React.FC = (): ReactElement => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex mb-2 flex-col">
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+        gutter={8}
+        containerClassName=""
+        containerStyle={{}}
+        toastOptions={{
+          className: '',
+          duration: 1250,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+        }}
+      />
+      <Header />
+      <div className="p-4">
+        <Routes>
+          <Route path={ROUTES.HOME} element={<Home />}>
+            <Route path=":id" element={<Detail />} />
+          </Route>
+        </Routes>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
