@@ -22,4 +22,5 @@ export const FieldRowStyle = styled.div`
 export const LabelStyle = styled.label`
   margin-bottom: 8px;
   color: black;
+  display: flex;
 `

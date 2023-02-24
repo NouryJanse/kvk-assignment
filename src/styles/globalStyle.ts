@@ -46,5 +46,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
     }    
+    .c-header__topbar {
+        background-image: -webkit-gradient(linear,left top,right top,from(#aa418c),to(#ff9300));
+        background-image: linear-gradient(90deg,#aa418c,#ff9300);
+        height: .5rem;
+        width: 100%;    
+    }
 `
 export default GlobalStyle

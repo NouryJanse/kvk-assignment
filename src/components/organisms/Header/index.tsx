@@ -12,6 +12,7 @@ const Header: React.FC = (): ReactElement => {
       role="presentation"
       className="shadow-md focus:pointer-events-auto cursor-pointer"
     >
+      <div className="o-page-topbar c-header__topbar" />
       <img src={logo} className="App-logo" alt="logo" />
     </nav>
   )

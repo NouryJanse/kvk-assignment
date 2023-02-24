@@ -14,6 +14,7 @@ const CompanySearch: React.FC = (): ReactElement => {
   const status = useSelector((state: RootState) => state.companySlice.status)
   const dispatch = useDispatch()
   const [searchQuery, setSearchQuery] = useState('')
+  const [listedCompanies, setListedCompanies] = useState<Company[] | null>(null)
 
   useEffect(() => {
     if (!companies || companies?.length < 1) {
@@ -24,11 +25,12 @@ const CompanySearch: React.FC = (): ReactElement => {
 
   useEffect(() => {
     if (status.searchCompany === REDUX_STATE.REJECTED || status.getCompanies === REDUX_STATE.REJECTED) {
-      toast.error('Something seems wrong on our side, no results were found...')
+      toast.error('Er lijkt bij ons iets mis te zijn, er zijn geen resultaten gevonden...')
     }
     if (
       status.searchCompany === REDUX_STATE.FULFILLED &&
       status.getCompanies === REDUX_STATE.FULFILLED &&
+      searchQuery !== '' &&
       searchedCompanies.length === 0
     ) {
       toast('No results found!', {
@@ -54,9 +56,19 @@ const CompanySearch: React.FC = (): ReactElement => {
     debouncedInputChange(event.target.value)
   }
 
+  useEffect(() => {
+    if (searchQuery !== '' && searchedCompanies.length > 0) {
+      setListedCompanies(searchedCompanies)
+    } else if (searchQuery === '' && companies.length > 0) {
+      setListedCompanies(companies)
+    } else if (searchQuery !== '' && searchedCompanies.length === 0) {
+      setListedCompanies(null)
+    }
+  }, [companies, searchedCompanies, searchQuery])
+
   return (
     <div>
-      <div className="flex flex-row mb-4">
+      <div className="flex flex-row mb-5">
         <Textfield
           name="companyName"
           label="Zoek op bedrijf, KVK-nummer of trefwoord"
@@ -74,15 +86,21 @@ const CompanySearch: React.FC = (): ReactElement => {
             noedge={false}
             classes=""
             onClick={(e): React.MouseEvent<HTMLButtonElement> => {
-              // @ts-ignore:next-line
-              dispatch(searchCompany(searchQuery))
+              if (searchQuery) {
+                // @ts-ignore:next-line
+                dispatch(searchCompany(searchQuery))
+              }
               return e
             }}
           />
         </div>
       </div>
       <div>
-        <CompanyListing companies={searchedCompanies.length ? searchedCompanies : companies} />
+        {listedCompanies ? (
+          <CompanyListing companies={listedCompanies} />
+        ) : (
+          'Oeps! Het lijkt erop dat er geen resultaten zijn voor jouw ingevoerde zoektermen.'
+        )}
       </div>
     </div>
   )

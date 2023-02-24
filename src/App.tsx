@@ -9,17 +9,18 @@ const App: React.FC = (): ReactElement => {
   return (
     <div className="flex mb-2 flex-col">
       <Toaster
-        position="bottom-right"
+        position="top-right"
         reverseOrder={false}
         gutter={8}
         containerClassName=""
         containerStyle={{}}
         toastOptions={{
           className: '',
-          duration: 1250,
+          duration: 1500,
           style: {
             background: '#363636',
             color: '#fff',
+            padding: '24px',
           },
         }}
       />

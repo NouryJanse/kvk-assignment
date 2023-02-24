@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { ReactElement, useEffect, useMemo, useState } from 'react'
 
 import CompanyTile from '../CompanyTile'
 
@@ -7,15 +7,17 @@ interface CompanyListingProps {
 }
 
 const CompanyListing: React.FC<CompanyListingProps> = ({ companies }): ReactElement => {
-  return (
-    <div>
-      {companies?.length
-        ? companies.map((company: Company) => {
-            return <CompanyTile key={company.id} company={company} />
-          })
-        : ''}
-    </div>
-  )
+  const [html, setHtml] = useState<JSX.Element[]>()
+  useEffect(() => {
+    if (companies?.length) {
+      setHtml(
+        companies.map((company: Company) => {
+          return <CompanyTile key={company.id} company={company} />
+        }),
+      )
+    }
+  }, [companies])
+  return <div>{html}</div>
 }
 
 export default CompanyListing
