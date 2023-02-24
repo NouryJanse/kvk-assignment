@@ -95,13 +95,11 @@ const CompanySearch: React.FC = (): ReactElement => {
           />
         </div>
       </div>
-      <div>
-        {listedCompanies ? (
-          <CompanyListing companies={listedCompanies} />
-        ) : (
-          'Oeps! Het lijkt erop dat er geen resultaten zijn voor jouw ingevoerde zoektermen.'
-        )}
-      </div>
+      {listedCompanies ? (
+        <CompanyListing companies={listedCompanies} />
+      ) : (
+        'Oeps! Het lijkt erop dat er geen resultaten zijn voor jouw ingevoerde zoektermen.'
+      )}
     </div>
   )
 }

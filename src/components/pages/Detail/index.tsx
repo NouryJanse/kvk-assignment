@@ -112,16 +112,19 @@ const Detail: React.FC = (): ReactElement => {
               ultrices. Sapien faucibus et molestie ac feugiat sed lectus. Viverra adipiscing at in tellus integer
               feugiat scelerisque varius morbi. Dolor morbi non arcu risus quis varius. Vitae tortor condimentum lacinia
               quis vel. Massa sed elementum tempus egestas sed sed. Phasellus egestas tellus rutrum tellus pellentesque
-              eu tincidunt tortor. Enim facilisis gravida neque convallis a cras semper auctor neque. Sed enim ut sem
-              viverra aliquet. Curabitur gravida arcu ac tortor dignissim. Erat pellentesque adipiscing commodo elit at
-              imperdiet dui accumsan sit. Nisl tincidunt eget nullam non nisi. Viverra mauris in aliquam sem fringilla
-              ut. Nunc pulvinar sapien et ligula ullamcorper malesuada proin. Bibendum at varius vel pharetra vel
-              turpis. Pellentesque id nibh tortor id aliquet. Turpis tincidunt id aliquet risus feugiat in ante metus
-              dictum. Risus ultricies tristique nulla aliquet enim. Scelerisque viverra mauris in aliquam sem fringilla
-              ut morbi tincidunt. Nunc mi ipsum faucibus vitae aliquet nec. Rhoncus est pellentesque elit ullamcorper
-              dignissim cras tincidunt lobortis feugiat. Risus ultricies tristique nulla aliquet. Cursus mattis molestie
-              a iaculis at erat pellentesque adipiscing. Blandit aliquam etiam erat velit scelerisque in. Pharetra magna
-              ac placerat vestibulum lectus.
+              eu tincidunt tortor.
+            </p>
+            <p>
+              Enim facilisis gravida neque convallis a cras semper auctor neque. Sed enim ut sem viverra aliquet.
+              Curabitur gravida arcu ac tortor dignissim. Erat pellentesque adipiscing commodo elit at imperdiet dui
+              accumsan sit. Nisl tincidunt eget nullam non nisi. Viverra mauris in aliquam sem fringilla ut. Nunc
+              pulvinar sapien et ligula ullamcorper malesuada proin. Bibendum at varius vel pharetra vel turpis.
+              Pellentesque id nibh tortor id aliquet. Turpis tincidunt id aliquet risus feugiat in ante metus dictum.
+              Risus ultricies tristique nulla aliquet enim. Scelerisque viverra mauris in aliquam sem fringilla ut morbi
+              tincidunt. Nunc mi ipsum faucibus vitae aliquet nec. Rhoncus est pellentesque elit ullamcorper dignissim
+              cras tincidunt lobortis feugiat. Risus ultricies tristique nulla aliquet. Cursus mattis molestie a iaculis
+              at erat pellentesque adipiscing. Blandit aliquam etiam erat velit scelerisque in. Pharetra magna ac
+              placerat vestibulum lectus.
             </p>
             <p>
               Urna id volutpat lacus laoreet non curabitur gravida arcu ac. Tincidunt ornare massa eget egestas purus

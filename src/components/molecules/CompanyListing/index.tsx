@@ -17,7 +17,18 @@ const CompanyListing: React.FC<CompanyListingProps> = ({ companies }): ReactElem
       )
     }
   }, [companies])
-  return <div>{html}</div>
+  return (
+    <div className="grid xs:grid-cols-1 lg:grid-flow-col gap-3">
+      <div className="lg:col-span-10 xl:col-span-11">{html}</div>
+      <div className="lg:col-span-1 xl:col-span-1">
+        <img
+          className="signatureImage max-w-md xl:max-w-xl object-cover h-2/4"
+          src="https://www.architour.nl/wp-content/uploads/2021/12/The-Valley01_PV-scaled.jpg"
+          alt="signatureImage"
+        />
+      </div>
+    </div>
+  )
 }
 
 export default CompanyListing

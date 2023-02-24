@@ -33,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'opensans';
         font-weight: 400;
         word-break: break-word;
+        margin-bottom: 8px;
     }
 
     .App-logo {
@@ -51,6 +52,11 @@ const GlobalStyle = createGlobalStyle`
         background-image: linear-gradient(90deg,#aa418c,#ff9300);
         height: .5rem;
         width: 100%;    
+    }
+
+    .signatureImage {
+        background-image: url('https://zuidas.nl/wp-content/uploads/2016/09/2017-Overizcht-Zuidas-luchtfoto-@-Flying-Holland-vrij-te-gebruiken-3-1800x1202.jpg');
+        width: 1000px;
     }
 `
 export default GlobalStyle
